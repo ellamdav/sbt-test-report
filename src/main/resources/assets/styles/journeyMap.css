@@ -1,0 +1,21 @@
+.journey {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Allows horizontal scrolling if images overflow */
+    gap: 10px; /* Spacing between images */
+}
+
+.screenshot-container {
+    width: 200px; /* Or any specific width you prefer */
+    height: 150px; /* Or any specific height you prefer */
+    display: flex; /* This will help in centering the image inside the container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Ensures the image is clipped if it overflows the container */
+}
+
+.screenshot {
+    max-width: 100%; /* Scale image to fit container width */
+    max-height: 100%; /* Scale image to fit container height */
+    object-fit: cover; /* Cover the container without losing the aspect ratio */
+}
