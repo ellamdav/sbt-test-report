@@ -1,13 +1,12 @@
 .journey {
     display: flex;
     flex-direction: row;
-    overflow-x: auto; /* Allows horizontal scrolling if images overflow */
     gap: 10px; /* Spacing between images */
     align-items: center; /* This aligns children vertically in the center */
 }
 
 .screenshot-container {
-    width: 400px; /* Or any specific width you prefer */
+    min-width: 400px; /* Or any specific width you prefer */
     display: flex; /* This will help in centering the image inside the container */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */

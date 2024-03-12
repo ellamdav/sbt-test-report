@@ -42,7 +42,7 @@ object JourneyMapPlugin extends AutoPlugin {
 
       val features = (screenshotDir ** "Feature-*").get.flatMap { featureDir =>
         val featureName = featureDir.name.replace("Feature-", "")
-        val scenarios   = (featureDir ** "*.png").get.zipWithIndex.flatMap { case (imagePath, index) =>
+        val scenarios   = (featureDir ** "*.png").get.sortBy(_.getName).zipWithIndex.flatMap { case (imagePath, index) =>
           val imageName         = imagePath.name
           val relativeImagePath = imagePath
             .relativeTo(screenshotDir)
