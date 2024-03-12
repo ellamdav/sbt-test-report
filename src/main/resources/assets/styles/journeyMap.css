@@ -3,11 +3,11 @@
     flex-direction: row;
     overflow-x: auto; /* Allows horizontal scrolling if images overflow */
     gap: 10px; /* Spacing between images */
+    align-items: center; /* This aligns children vertically in the center */
 }
 
 .screenshot-container {
-    width: 200px; /* Or any specific width you prefer */
-    height: 150px; /* Or any specific height you prefer */
+    width: 400px; /* Or any specific width you prefer */
     display: flex; /* This will help in centering the image inside the container */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -18,4 +18,13 @@
     max-width: 100%; /* Scale image to fit container width */
     max-height: 100%; /* Scale image to fit container height */
     object-fit: cover; /* Cover the container without losing the aspect ratio */
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid black; /* Adjust the color as needed */
+    margin: 0 10px; /* Adjust spacing around the arrow */
 }

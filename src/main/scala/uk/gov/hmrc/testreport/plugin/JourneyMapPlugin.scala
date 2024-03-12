@@ -41,20 +41,26 @@ object JourneyMapPlugin extends AutoPlugin {
       val htmlFile      = htmlOutputDir / "journeyMap.html"
 
       val features = (screenshotDir ** "Feature-*").get.flatMap { featureDir =>
-        val featureName = featureDir.name
-        val scenarios   = (featureDir ** "*.png").get.map { imagePath =>
+        val featureName = featureDir.name.replace("Feature-", "")
+        val scenarios   = (featureDir ** "*.png").get.zipWithIndex.flatMap { case (imagePath, index) =>
           val imageName         = imagePath.name
           val relativeImagePath = imagePath
             .relativeTo(screenshotDir)
             .getOrElse(throw new Exception("Relative path calculation failed"))
             .getPath
-          div(cls := "screenshot-container")(
+          val imageTag          = div(cls := "screenshot-container")(
             img(src := s"images/screenshots/$relativeImagePath", alt := imageName, cls := "screenshot")
           )
+
+          if (index < (featureDir ** "*.png").get.size - 1) {
+            Seq(imageTag, div(cls := "arrow"))
+          } else {
+            Seq(imageTag)
+          }
         }
         Seq(
           article(
-            h2(featureName),
+            h2(featureName.split("-").mkString(" ")),
             div(cls := "journey")(scenarios)
           )
         )
@@ -66,7 +72,7 @@ object JourneyMapPlugin extends AutoPlugin {
           link(rel := "stylesheet", href := "css/journeyMap.css")
         ),
         body(
-          h1("Journey Map"),
+          h1("Journey Maps"),
           ul(features)
         )
       )
