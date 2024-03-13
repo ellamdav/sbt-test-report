@@ -5,6 +5,12 @@
     align-items: center; /* This aligns children vertically in the center */
 }
 
+.journey-divider {
+    height: 1px;
+    background-color: #000; /* Black line */
+    margin: 20px 0; /* Add some space above and below the line */
+}
+
 .screenshot-container {
     min-width: 400px; /* Or any specific width you prefer */
     display: flex; /* This will help in centering the image inside the container */

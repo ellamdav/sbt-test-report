@@ -60,6 +60,7 @@ object JourneyMapPlugin extends AutoPlugin {
         }
         Seq(
           article(
+            div(cls := "journey-divider"),
             h2(featureName.split("-").mkString(" ")),
             div(cls := "journey")(scenarios)
           )
